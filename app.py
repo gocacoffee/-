@@ -2,13 +2,13 @@
 """
 Created on Wed Jun  2 21:16:35 2021
 @author: Ivan
-ª©ÅvÄİ©ó¡u¦æ¾P·h¶i¤jµ{¦¡¡v©Ò¦³¡A­Y¦³ºÃ°İ¡A¥iÁpµ¸ivanyang0606@gmail.com
+ç‰ˆæ¬Šå±¬æ–¼ã€Œè¡ŒéŠ·æ¬é€²å¤§ç¨‹å¼ã€æ‰€æœ‰ï¼Œè‹¥æœ‰ç–‘å•ï¼Œå¯è¯çµ¡ivanyang0606@gmail.com
 
-Line Bot²á¤Ñ¾÷¾¹¤H
-²Ä¤@³¹ Line Bot¥Ó½Ğ»P¦ê±µ
-Line Bot¾÷¾¹¤H¦ê±µ»P´ú¸Õ
+Line BotèŠå¤©æ©Ÿå™¨äºº
+ç¬¬ä¸€ç«  Line Botç”³è«‹èˆ‡ä¸²æ¥
+Line Botæ©Ÿå™¨äººä¸²æ¥èˆ‡æ¸¬è©¦
 """
-#¸ü¤JLineBot©Ò»İ­nªº®M¥ó
+#è¼‰å…¥LineBotæ‰€éœ€è¦çš„å¥—ä»¶
 from flask import Flask, request, abort
 
 from linebot import (
@@ -21,15 +21,15 @@ from linebot.models import *
 
 app = Flask(__name__)
 
-# ¥²¶·©ñ¤W¦Û¤vªºChannel Access Token
+# å¿…é ˆæ”¾ä¸Šè‡ªå·±çš„Channel Access Token
 line_bot_api = LineBotApi('gS2GuTaL0d7JGUvbcY3ha+4SM2ev1EYXeLoc8w6xlvzQymHnb/G0m3Eng4oplV0v46+Q7pSbwC4ixfYvZEiywTzhVUS7ql6OrOU9mEshMWfXNxm/aK+AxLcvJ/YC7S4XW4m0MdhhOICnzpkpVw0TmwdB04t89/1O/w1cDnyilFU=')
-# ¥²¶·©ñ¤W¦Û¤vªºChannel Secret
+# å¿…é ˆæ”¾ä¸Šè‡ªå·±çš„Channel Secret
 handler = WebhookHandler('1cfb0d0c2edb4bc3c8e671c0b097fab7')
 
-line_bot_api.push_message('1657125289', TextSendMessage(text='§A¥i¥H¶}©l¤F'))
+line_bot_api.push_message('1657125289', TextSendMessage(text='ä½ å¯ä»¥é–‹å§‹äº†'))
 
 
-# ºÊÅ¥©Ò¦³¨Ó¦Û /callback ªº Post Request
+# ç›£è½æ‰€æœ‰ä¾†è‡ª /callback çš„ Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -49,14 +49,14 @@ def callback():
     return 'OK'
 
  
-#°T®§¶Ç»¼°Ï¶ô
-##### °ò¥»¤Wµ{¦¡½s¿è³£¦b³o­Ófunction #####
+#è¨Šæ¯å‚³éå€å¡Š
+##### åŸºæœ¬ä¸Šç¨‹å¼ç·¨è¼¯éƒ½åœ¨é€™å€‹function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = TextSendMessage(text=event.message.text)
     line_bot_api.reply_message(event.reply_token,message)
 
-#¥Dµ{¦¡
+#ä¸»ç¨‹å¼
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
